@@ -120,3 +120,32 @@ body {
             transform: rotateY(0deg);
   }
 }
+@media (max-width: 768px) {
+  #drag-container img {
+    width: 100px !important; /* Override default width */
+    height: auto !important;
+  }
+}
+
+
+  #ground {
+    width: 100vw; 
+    height: auto; 
+    max-width: none;
+  }
+  #drag-container {
+    perspective: 1200px; /* Increase depth for better scaling */
+  }
+  
+  @media (max-width: 768px) {
+    #drag-container {
+      perspective: 1800px; /* More depth for mobile */
+    }
+  
+    #spin-container img {
+      width: 180px !important;  /* Increase size */
+      height: auto !important;
+    }
+  }
+  
+
