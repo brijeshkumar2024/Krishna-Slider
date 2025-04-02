@@ -1,7 +1,7 @@
 var radius = 240; // Radius of the carousel
 var autoRotate = true; // Enable auto-rotation
 var rotateSpeed = -60; // Rotation speed (seconds per 360 degrees)
-var imgWidth = 120, imgHeight = 170; // Image dimensions
+var imgWidth = 220, imgHeight = 300; // Image dimensions
 
 var bgMusicURL = null; // Set to null to disable background music
 var bgMusicControls = true;
