@@ -36,6 +36,27 @@ function applyTransform(obj) {
 function playSpin(yes) {
     ospin.style.animationPlayState = yes ? "running" : "paused";
 }
+function adjustForMobile() {
+  if (window.innerWidth < 768) {
+      radius = 500; // Increase depth to bring images closer
+      imgWidth = 200; // Larger image size
+      imgHeight = 280;
+      ospin.style.width = imgWidth + "px";
+      ospin.style.height = imgHeight + "px";
+      document.getElementById("ground").style.width = radius * 3 + "px";
+      document.getElementById("ground").style.height = radius * 3 + "px";
+      
+      aEle.forEach((ele, i) => {
+          ele.style.transform = `rotateY(${i * (360 / aEle.length)}deg) translateZ(${radius}px)`;
+      });
+
+      init(1);
+  }
+}
+
+// Run this on load and resize
+adjustForMobile();
+window.addEventListener("resize", adjustForMobile);
 
 var sX, sY, desX = 0, desY = 0, tX = 0, tY = 10;
 
@@ -50,6 +71,7 @@ if (bgMusicURL) {
     if (bgMusicControls) audio.controls = true;
     document.body.appendChild(audio);
 }
+
 
 document.addEventListener("pointerdown", (e) => {
     clearInterval(odrag.timer);
